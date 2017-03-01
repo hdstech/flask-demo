@@ -21,7 +21,8 @@ class Pokeymon(db.Model):
 class PokeymonNapTime(Resource):
     def get(self, name):
         result = Pokeymon.query.filter_by(name=name).first()
-        return jsonify(result.name)
+        del result.__dict__['_sa_instance_state']
+        return jsonify(result.__dict__)
         
 
     def post(self, name, color=None):
