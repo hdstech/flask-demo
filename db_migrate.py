@@ -1,9 +1,7 @@
 import imp
 from migrate.versioning import api
 from flaskmob import db
-
-SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
-SQLALCHEMY_MIGRATE_REPO = 'migrations'
+from config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO
 
 v = api.db_version(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO)
 migration = SQLALCHEMY_MIGRATE_REPO + ('/versions/%03d_migration.py' % (v+1))

@@ -1,10 +1,7 @@
-#!flask/bin/python
+import os.path
 from migrate.versioning import api
 from flaskmob import db
-import os.path
-
-SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
-SQLALCHEMY_MIGRATE_REPO = 'migrations'
+from config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO
 
 db.create_all()
 if not os.path.exists(SQLALCHEMY_MIGRATE_REPO):

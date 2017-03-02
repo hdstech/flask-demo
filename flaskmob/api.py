@@ -23,7 +23,6 @@ class PokeymonNapTime(Resource):
         result = Pokeymon.query.filter_by(name=name).first()
         del result.__dict__['_sa_instance_state']
         return jsonify(result.__dict__)
-        
 
     def post(self, name, color=None):
         new_pokeymon = Pokeymon(name, color)
