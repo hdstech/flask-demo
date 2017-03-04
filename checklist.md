@@ -1,4 +1,4 @@
-Tutorial: [http://codehandbook.org/flask-restful-api-using-python-mysql/]()
+Tutorial: [http://codehandbook.org/flask-restful-api-using-python-mysql/](http://codehandbook.org/flask-restful-api-using-python-mysql/)
 
 Setup Python
 * [ ] Install `Python`
