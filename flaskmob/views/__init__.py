@@ -11,5 +11,5 @@ def index():
 def submit():
     form = PokeyForm()
     if form.validate_on_submit():
-        return addNewPokeymon(form.name.data)
+        return addNewPokeymon(form.name.data, form.color.data)
     return render_template('pokeymonForm.html', form=form)
