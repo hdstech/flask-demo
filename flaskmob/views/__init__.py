@@ -1,6 +1,7 @@
 from flaskmob import app
 from flaskmob.forms import PokeyForm
-from flask import render_template
+from flask import render_template, redirect, request
+from flaskmob.api import addNewPokeymon
 
 @app.route("/")
 def index():
@@ -10,5 +11,5 @@ def index():
 def submit():
     form = PokeyForm()
     if form.validate_on_submit():
-        return redirect(f'/api/1.0/pokeyman/{form.name}')
+        return addNewPokeymon(form.name.data)
     return render_template('pokeymonForm.html', form=form)

@@ -25,13 +25,16 @@ class PokeymonNapTime(Resource):
         return jsonify(result.__dict__)
 
     def post(self, name, color=None):
-        new_pokeymon = Pokeymon(name, color)
-        db.session.add(new_pokeymon)
-        try:
-            db.session.commit()
-        except:
-            db.session.rollback()
-            raise
-        return "Success"
+        addNewPokeymon(name, color)
+        
+def addNewPokeymon(name, color=None):
+    new_pokeymon = Pokeymon(name, color)
+    db.session.add(new_pokeymon)
+    try:
+        db.session.commit()
+    except:
+        db.session.rollback()
+        raise
+    return "Success"
 
 api.add_resource(PokeymonNapTime, "/api/1.0/pokeyman/<string:name>")
