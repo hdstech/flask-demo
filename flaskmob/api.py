@@ -26,7 +26,7 @@ class PokeymonNapTime(Resource):
 
     def post(self, name, color=None):
         addNewPokeymon(name, color)
-        
+
 def addNewPokeymon(name, color=None):
     new_pokeymon = Pokeymon(name, color)
     db.session.add(new_pokeymon)
@@ -36,5 +36,9 @@ def addNewPokeymon(name, color=None):
         db.session.rollback()
         raise
     return "Success"
+
+def getPokeymonList(num=10):
+    results = Pokeymon.query.limit(num).all()
+    return results
 
 api.add_resource(PokeymonNapTime, "/api/1.0/pokeyman/<string:name>")

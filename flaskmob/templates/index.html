@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+    <h2>Available Pokeymons</h2>
+    <ul>
+    {% for pokey in pokeymon %}
+        <li>{{ pokey.name }} &mdash; {{ pokey.color }}</li>
+    {% endfor %}
+    </ul>
+    <hr>
+    <a href="/submit">Add Pokeymon</a>
+{% endblock %}

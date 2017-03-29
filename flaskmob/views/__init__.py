@@ -1,11 +1,12 @@
-from flaskmob import app
+from flaskmob import app, db
 from flaskmob.forms import PokeyForm
 from flask import render_template, redirect, request
-from flaskmob.api import addNewPokeymon
+from flaskmob.api import addNewPokeymon, getPokeymonList
 
 @app.route("/")
 def index():
-    return "Hello OPUG for the sake of being programmers!"
+    pokeymon = getPokeymonList()
+    return render_template('index.html', pokeymon=pokeymon)
 
 @app.route('/submit', methods=('GET', 'POST'))
 def submit():

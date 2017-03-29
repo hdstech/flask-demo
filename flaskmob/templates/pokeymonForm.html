@@ -1,8 +1,9 @@
-<html>
+{% extends 'base.html' %}
+{% block body %}
     <form method="POST" action="/submit">
         {{ form.csrf_token }}
         {{ form.name.label }} {{ form.name(size=20) }}
         {{ form.color.label }} {{ form.color() }}
         <input type="submit" value="Go">
     </form>
-</html>
+{% endblock %}
